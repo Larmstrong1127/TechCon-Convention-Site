@@ -1,0 +1,59 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Home";
+}
+
+<!-- ── Hero Banner ──────────────────────────────────────── -->
+<div class="hero-banner">
+    <h1><i class="bi bi-laptop me-2"></i>Welcome to TechCon 2024!</h1>
+    <p>
+        The premier technology convention connecting innovators, developers, and
+        industry leaders. Explore our exhibitor hall and meet our special guests.
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a asp-controller="Companies" asp-action="ListAll" class="btn btn-primary btn-lg">
+            <i class="bi bi-building me-2"></i>View Exhibitors
+        </a>
+        <a asp-controller="SpecialGuest" asp-action="ViewAll" class="btn btn-secondary btn-lg">
+            <i class="bi bi-star me-2"></i>Special Guests
+        </a>
+    </div>
+</div>
+
+<!-- ── Quick Info Cards ──────────────────────────────────── -->
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header"><i class="bi bi-building me-2"></i>Exhibitors</div>
+            <div class="card-body">
+                <p>Browse all companies participating in this year's convention floor, find booth locations, and plan your visit.</p>
+                <a asp-controller="Companies" asp-action="ListAll" class="btn btn-primary btn-sm">
+                    View All Exhibitors
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header"><i class="bi bi-plus-circle me-2"></i>Register Your Company</div>
+            <div class="card-body">
+                <p>Is your company attending TechCon? Add your organization to the exhibitor directory and reserve a booth.</p>
+                <a asp-controller="Companies" asp-action="Add" class="btn btn-primary btn-sm">
+                    Add Company
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header"><i class="bi bi-star me-2"></i>Special Guests</div>
+            <div class="card-body">
+                <p>Meet our featured keynote speakers, industry experts, and notable personalities attending this year's event.</p>
+                <a asp-controller="SpecialGuest" asp-action="ViewAll" class="btn btn-primary btn-sm">
+                    Meet the Guests
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

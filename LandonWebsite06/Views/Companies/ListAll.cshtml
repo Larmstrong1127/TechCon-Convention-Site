@@ -1,0 +1,52 @@
+@model IEnumerable<LandonWebsite06.Models.Companies>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Exhibitors";
+}
+
+<!-- ── Page Header ──────────────────────────────────────── -->
+<div class="page-header">
+    <h1><i class="bi bi-building me-2"></i>Convention Exhibitors</h1>
+    <a asp-controller="Companies" asp-action="Add" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i>Add Exhibitor
+    </a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle me-2"></i>No exhibitors have been registered yet.
+        <a asp-controller="Companies" asp-action="Add">Be the first to add one!</a>
+    </div>
+}
+else
+{
+    <!-- ── Exhibitor List ────────────────────────────────── -->
+    @foreach (var company in Model)
+    {
+        <div class="company-item">
+            <div>
+                <h2>@company.companyName</h2>
+                <span class="booth-badge">
+                    <i class="bi bi-geo-alt me-1"></i>Booth @company.boothnumber
+                </span>
+            </div>
+            <div class="company-actions">
+                <a asp-controller="Companies" asp-action="Edit"
+                   asp-route-id="@company.ID" class="edit-link">
+                    <i class="bi bi-pencil me-1"></i>Edit
+                </a>
+                <a asp-controller="Companies" asp-action="Remove"
+                   asp-route-id="@company.ID" class="remove-link"
+                   onclick="return confirm('Remove @company.companyName from the directory?')">
+                    <i class="bi bi-trash me-1"></i>Remove
+                </a>
+            </div>
+        </div>
+    }
+
+    <p class="text-muted small mt-3">
+        <i class="bi bi-info-circle me-1"></i>@Model.Count() exhibitor(s) registered
+    </p>
+}

@@ -1,0 +1,54 @@
+﻿<
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>   form validation      </title>
+    <link type="text/css" rel="stylesheet" href="css/First.css"/>
+</head>
+
+<body>
+    <!--
+    <nav class="page-nav">
+        <div class="container">
+            <a href="/About.html">About</a>
+            <a href="/Register.html">Register</a>
+            <a href="/Welcome.html">Welcome</a>
+        </div>
+    </nav>
+    <br>
+        -->
+
+
+    <h1>Welcome to ... the Best Website</h1>
+    <section class="page-section welcome">
+        <div class="container">
+            <!--<script src="Welcome.js"></script>-->
+            <h1>Admin sign-in</h1>
+
+            <form name="welcome-form" method="post" onsubmit="return validateForm()" action="/welcome/new" id="welcome-form" required>
+
+
+                <div class="field">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="Username" minlength="6" />
+                </div>
+                <div class="field">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="Password" pattern="[A-Za-z]{6}" title="6 Character Password" />
+                </div>
+                <div class="field">
+                    <label for="identify">ID#: </label>
+                    <input type="number" id="identify" name="Identify" min="100" max="500" />
+                </div>
+                <div>
+                    <button type="submit" value="Submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>

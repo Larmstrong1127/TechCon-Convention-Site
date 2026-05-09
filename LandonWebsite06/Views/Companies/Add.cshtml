@@ -1,0 +1,39 @@
+@model LandonWebsite06.Models.Companies
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Add Exhibitor";
+}
+
+<!-- ── Page Header ──────────────────────────────────────── -->
+<div class="page-header">
+    <h1><i class="bi bi-plus-circle me-2"></i>Add Exhibitor</h1>
+    <a asp-controller="Companies" asp-action="ListAll" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-1"></i>Back to Exhibitors
+    </a>
+</div>
+
+<!-- ── Add Company Form ─────────────────────────────────── -->
+<div class="form-wrapper">
+    @using (Html.BeginForm("Add", "Companies", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.companyName, "Company Name")
+            @Html.TextBoxFor(m => m.companyName, new { @class = "form-control", placeholder = "e.g. Acme Technologies" })
+            @Html.ValidationMessageFor(m => m.companyName, "", new { @class = "field-validation-error" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.boothnumber, "Booth Number")
+            @Html.TextBoxFor(m => m.boothnumber, new { @class = "form-control", placeholder = "e.g. 42" })
+            @Html.ValidationMessageFor(m => m.boothnumber, "", new { @class = "field-validation-error" })
+        </div>
+
+        <div class="d-flex gap-2 mt-4">
+            <input type="submit" value="Add Exhibitor" class="btn btn-primary" />
+            <a asp-controller="Companies" asp-action="ListAll" class="btn btn-secondary">Cancel</a>
+        </div>
+    }
+</div>
