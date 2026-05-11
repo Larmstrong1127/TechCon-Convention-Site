@@ -1,6 +1,6 @@
-# TechCon Convention Site
+# TechCon 2024 Convention Site
 
-An ASP.NET Core MVC web application for managing a technology conference. Features exhibitor management, special guest tracking, booth uniqueness validation, an admin dashboard with full CRUD operations, confirmation flows, and TempData flash messages.
+A full-featured ASP.NET Core 3.1 MVC web application for managing a technology convention. Supports exhibitor company listings with booth assignments, special guest profiles, full CRUD operations, server-side validation, confirmation flows, and TempData flash messages — all backed by Entity Framework Core and SQLite.
 
 **Developer:** Landon Armstrong
 **GitHub:** [Larmstrong1127](https://github.com/Larmstrong1127)
@@ -12,23 +12,22 @@ An ASP.NET Core MVC web application for managing a technology conference. Featur
 
 | Layer | Technology |
 |---|---|
-| Framework | ASP.NET Core MVC |
+| Framework | ASP.NET Core 3.1 MVC |
 | Language | C# |
-| Database | SQLite + Entity Framework Core |
-| Frontend | Razor Views, Bootstrap, Bootstrap Icons |
+| Database | SQLite + Entity Framework Core 3.1 |
+| Frontend | Razor Views, Bootstrap 4, Bootstrap Icons |
 
 ---
 
 ## Features
 
-- **Exhibitor Management** — Full CRUD for companies attending the convention with booth number assignments
+- **Exhibitor Management** — Full CRUD for companies attending the convention, including booth number assignments
 - **Special Guest Tracking** — Add, edit, and manage keynote speakers and featured guests with name, title, company, and bio
 - **Booth Uniqueness Validation** — Server-side validation prevents two companies from sharing the same booth number
-- **Admin Dashboard** — Central interface with quick access to all exhibitor and guest management actions
-- **Confirmation Flows** — Delete confirmations to prevent accidental data loss
+- **Confirmation Flows** — Delete confirmation pages to prevent accidental data loss
 - **TempData Flash Messages** — Success feedback displayed after every create, update, and delete action
-- **Hero Landing Page** — Welcome page with quick navigation links to all sections
-- **Responsive UI** — Professional indigo/purple convention theme, mobile-friendly
+- **Hero Landing Page** — Welcome page with feature cards and quick navigation to all sections
+- **Responsive UI** — Bold orange/navy conference theme built with Bootstrap 4, works on mobile and desktop
 
 ---
 
@@ -38,19 +37,19 @@ An ASP.NET Core MVC web application for managing a technology conference. Featur
 LandonWebsite06/
 ├── Controllers/
 │   ├── HomeController.cs           # Hero landing page
-│   ├── CompaniesController.cs      # Exhibitor CRUD and booth validation
+│   ├── CompaniesController.cs      # Exhibitor CRUD and booth uniqueness validation
 │   └── SpecialGuestController.cs   # Special guest CRUD
 ├── Models/
-│   ├── Companies.cs                # Exhibitor entity
+│   ├── Companies.cs                # Exhibitor entity (name, ID, booth number)
 │   └── SpecialGuest.cs             # Guest entity (name, title, company, bio)
 ├── Data/
 │   └── MyDBContext.cs              # EF Core DbContext with seed data
 ├── Views/
-│   ├── Home/Index.cshtml           # Hero landing page
+│   ├── Home/Index.cshtml           # Hero landing page with feature cards
 │   ├── Companies/                  # ListAll, Add, Edit, Remove
 │   └── SpecialGuest/               # ViewAll, Add, Edit, Delete
 └── wwwroot/
-    └── css/First.css               # Custom convention theme
+    └── css/First.css               # Custom orange/navy convention theme
 ```
 
 ---
@@ -58,14 +57,14 @@ LandonWebsite06/
 ## Setup Instructions
 
 ### Prerequisites
-- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/3.1)
 - Visual Studio 2019+ or VS Code with the C# extension
 
 ### Run Locally
 
 ```bash
 # Clone the repository
-git clone https://github.com/Larmstrong1127/techcon-site.git
+git clone https://github.com/Larmstrong1127/TechCon-Convention-Site.git
 cd LandonWebsite06
 
 # Restore NuGet packages
@@ -77,7 +76,7 @@ dotnet run
 
 Then open `http://localhost:5000` in your browser.
 
-> **Note:** A SQLite database file (`Event.db`) will be created automatically on first run and seeded with sample exhibitor companies and special guests. This file is excluded from version control.
+> **Note:** A SQLite database file (`Event.db`) will be created automatically on first run and seeded with sample exhibitor companies and special guests. This file is excluded from version control. To reset the data, delete `Event.db` and restart the application.
 
 ---
 
@@ -110,3 +109,5 @@ Then open `http://localhost:5000` in your browser.
 ## License
 
 This project is for educational and portfolio purposes.
+
+**Developer:** Landon Armstrong · [GitHub](https://github.com/Larmstrong1127)
